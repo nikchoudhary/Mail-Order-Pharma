@@ -72,7 +72,7 @@ namespace MailOrderPharmacy_DrugService.Controllers
 
         // POST api/<DrugsController>
         [HttpGet("{id}/{loc}")]
-        public IActionResult getDispatchableDrugStock(int id, string loc)
+        public IActionResult GetDispatchableDrugStock(int id, string loc)
         {
             var drug = _con.getDispatchableDrugStock(id, loc);
             return Ok(drug);

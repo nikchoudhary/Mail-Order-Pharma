@@ -103,17 +103,17 @@ namespace MailOrderPharmacy_DrugService.Repository
                 Available_Stock =100
             }
         };
-        public DrugDetails searchDrugsByID(int Id)
+        public virtual DrugDetails searchDrugsByID(int Id)
         {
             var item = ls.Where(x => x.DrugId == Id).FirstOrDefault();
             return item;
         }
-        public DrugDetails searchDrugsByName(string name)
+        public virtual DrugDetails searchDrugsByName(string name)
         {
             var item = ls.Where(x => x.Name == name).FirstOrDefault();
             return item;
         }
-        public IEnumerable<DrugLocation> getDispatchableDrugStock(int Id, string location)
+        public virtual IEnumerable<DrugLocation> getDispatchableDrugStock(int Id, string location)
         {
             var obj = DrugLocController.list;
             List<DrugLocation> item = new List<DrugLocation>();
