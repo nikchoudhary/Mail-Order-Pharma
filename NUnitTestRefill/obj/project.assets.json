@@ -7363,11 +7363,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\oliva\\OneDrive\\Desktop\\refill again\\NUnitTestRefill\\NUnitTestRefill.csproj",
+      "projectUniqueName": "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\NUnitTestRefill\\NUnitTestRefill.csproj",
       "projectName": "NUnitTestRefill",
-      "projectPath": "C:\\Users\\oliva\\OneDrive\\Desktop\\refill again\\NUnitTestRefill\\NUnitTestRefill.csproj",
+      "projectPath": "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\NUnitTestRefill\\NUnitTestRefill.csproj",
       "packagesPath": "C:\\Users\\oliva\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\oliva\\OneDrive\\Desktop\\refill again\\NUnitTestRefill\\obj\\",
+      "outputPath": "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\NUnitTestRefill\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\oliva\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7383,8 +7383,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\oliva\\OneDrive\\Desktop\\refill again\\MailOrderPharmacy_RefillService-master\\MailOrderPharmacy_RefillService.csproj": {
-              "projectPath": "C:\\Users\\oliva\\OneDrive\\Desktop\\refill again\\MailOrderPharmacy_RefillService-master\\MailOrderPharmacy_RefillService.csproj"
+            "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\MailOrderPharmacy_RefillService-master\\MailOrderPharmacy_RefillService.csproj": {
+              "projectPath": "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\MailOrderPharmacy_RefillService-master\\MailOrderPharmacy_RefillService.csproj"
             }
           }
         }

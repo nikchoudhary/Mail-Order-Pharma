@@ -6146,11 +6146,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\oliva\\source\\repos\\LoginPortal\\LoginPortal.csproj",
+      "projectUniqueName": "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\LoginPortal\\LoginPortal.csproj",
       "projectName": "LoginPortal",
-      "projectPath": "C:\\Users\\oliva\\source\\repos\\LoginPortal\\LoginPortal.csproj",
+      "projectPath": "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\LoginPortal\\LoginPortal.csproj",
       "packagesPath": "C:\\Users\\oliva\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\oliva\\source\\repos\\LoginPortal\\obj\\",
+      "outputPath": "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\LoginPortal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\oliva\\AppData\\Roaming\\NuGet\\NuGet.Config",

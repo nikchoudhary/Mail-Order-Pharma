@@ -34,6 +34,8 @@ namespace MailOrderPharmacy_RefillService.Controllers
             try
             {
                 var item = _db.viewRefillStatus(id);
+                if (item == null)
+                    return null;
                 return Ok(item);
             }
             catch
@@ -48,32 +50,38 @@ namespace MailOrderPharmacy_RefillService.Controllers
         [HttpGet("RefillDueAsOfDate/{id}/{FromDate}")]
         public IActionResult RefillDueAsOfDate(int id, DateTime FromDate)
         {
-            Refill fill = new Refill();
+            //Refill fill = new Refill();
+            //List<RefillDetails> m = new List<RefillDetails>();
+            ////List<string> myList = new List<string>();
+
+
+            //string data = JsonConvert.SerializeObject(id);
+
+            ////int x = obj.Drug_ID;
+
+            //Uri baseAddress = new Uri("https://localhost:44318/api/Subscription/" + id);
+            //HttpClient client = new HttpClient();
+            //client.BaseAddress = baseAddress;
+
+            //HttpResponseMessage response = client.GetAsync(client.BaseAddress).Result;
+            //if (response.IsSuccessStatusCode)
+            //{
+            //    data = response.Content.ReadAsStringAsync().Result;
+
+            //    Subs s = JsonConvert.DeserializeObject<Subs>(data);
+            //    string freq = s.RefillOccurrence;
+            //    m = fill.PendingRefill(id, FromDate, freq);
+            //    IEnumerable<RefillDetails> myEnumerable = (IEnumerable<RefillDetails>)m;
+            //    return Ok(myEnumerable);
+
+
+            //}
+           // Refill fill = new Refill();
             List<RefillDetails> m = new List<RefillDetails>();
-            //List<string> myList = new List<string>();
-
-
-            string data = JsonConvert.SerializeObject(id);
-
-            //int x = obj.Drug_ID;
-
-            Uri baseAddress = new Uri("https://localhost:44318/api/Subscription/" + id);
-            HttpClient client = new HttpClient();
-            client.BaseAddress = baseAddress;
-
-            HttpResponseMessage response = client.GetAsync(client.BaseAddress).Result;
-            if (response.IsSuccessStatusCode)
-            {
-                data = response.Content.ReadAsStringAsync().Result;
-
-                Subs s = JsonConvert.DeserializeObject<Subs>(data);
-                string freq = s.RefillOccurrence;
-                m = fill.PendingRefill(id, FromDate, freq);
+            m = _db.PendingRefill(id, FromDate);
                 IEnumerable<RefillDetails> myEnumerable = (IEnumerable<RefillDetails>)m;
+            if(myEnumerable!=null)
                 return Ok(myEnumerable);
-
-
-            }
 
             return BadRequest();
         }

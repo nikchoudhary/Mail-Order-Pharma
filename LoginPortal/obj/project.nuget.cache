@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JWQyt8jHPAK/EW2e67fvOxHcn8aDA3c3AVvyflnqyM8q8kDUppvEkiYJKN6RZ5mLhocPSzLyowFTZmTR0yAfgA==",
+  "dgSpecHash": "iY/VNSqvCEiqBGFEOEzYGGi5sCiiNNguVtoGauKZNmSr+bjsfzsSQTCOSJpMKASHbRC8kH26FJYD+aH+1L29Qw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\oliva\\source\\repos\\LoginPortal\\LoginPortal.csproj",
+  "projectFilePath": "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\LoginPortal\\LoginPortal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\oliva\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\oliva\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

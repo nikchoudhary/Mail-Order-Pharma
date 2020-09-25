@@ -12,7 +12,7 @@ namespace MailOrderPharmacy_DrugService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class DrugsController : ControllerBase
     {
         readonly log4net.ILog _log4net;

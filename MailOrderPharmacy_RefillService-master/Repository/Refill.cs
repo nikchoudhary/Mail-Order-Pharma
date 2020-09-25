@@ -44,19 +44,50 @@ namespace MailOrderPharmacy_RefillService.Repository
                 Location = "Mumbai"
             }
         };
-        //public IEnumerable<RefillDetails> GetAll()
-        //{
-        //    return ls;
-        //}
-        public virtual RefillDetails viewRefillStatus(int Sub_Id)
+        
+        public virtual dynamic viewRefillStatus(int Sub_Id)
         {
             var item = ls.Where(x => x.Subscription_ID == Sub_Id).FirstOrDefault();
             return item;
         }
 
 
-        public List<RefillDetails> PendingRefill(int id, DateTime date, string freq)
+        public virtual dynamic PendingRefill(int id, DateTime date)//List<RefillDetails>
         {
+            Refill fill = new Refill();
+            List<RefillDetails> m = new List<RefillDetails>();
+            //List<string> myList = new List<string>();
+
+
+            string data = JsonConvert.SerializeObject(id);
+
+            //int x = obj.Drug_ID;
+
+            Uri baseAddress = new Uri("https://localhost:44318/api/Subscription/" + id);
+            HttpClient client = new HttpClient();
+            client.BaseAddress = baseAddress;
+
+            HttpResponseMessage response = client.GetAsync(client.BaseAddress).Result;
+            string freq = "";
+            if (response.IsSuccessStatusCode)
+            {
+                data = response.Content.ReadAsStringAsync().Result;
+
+                Subs s = JsonConvert.DeserializeObject<Subs>(data);
+                freq = s.RefillOccurrence;
+                //m = fill.PendingRefill(id, FromDate, freq);
+                //IEnumerable<RefillDetails> myEnumerable = (IEnumerable<RefillDetails>)m;
+                //return Ok(myEnumerable);
+
+
+            }
+
+            //return BadRequest();
+
+
+
+
+
             List<RefillDetails> Pending = new List<RefillDetails>();
             if (freq == "Weekly")
             {
@@ -102,7 +133,7 @@ namespace MailOrderPharmacy_RefillService.Repository
             return Pending;
         }
 
-        public dynamic requestAdhocRefill(RefillOrderLine order)
+        public virtual dynamic requestAdhocRefill(RefillOrderLine order)
         {
             RefillDetails detail = ls.Where(x => x.Member_ID == order.Member_ID).FirstOrDefault();
 
