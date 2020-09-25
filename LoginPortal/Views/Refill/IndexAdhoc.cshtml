@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "IndexAdhoc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>IndexAdhoc</h1>
+
+<form action="/Refill/Adhocdrug" method="post">
+    <input name="Policy_ID" type="text" />
+
+    <input name="Member_ID" type="text" />
+
+    <input name="Subscription_ID" type="text" />
+   
+    <input name="Location" type="text" />
+
+    <input type="submit" value="Search" />
+</form>
+

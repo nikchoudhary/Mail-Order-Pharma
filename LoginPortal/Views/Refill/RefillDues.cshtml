@@ -1,0 +1,92 @@
+﻿@model IEnumerable<LoginPortal.Models.Refill>
+
+@{
+    ViewData["Title"] = "RefillDues";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>RefillDues</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RefillOrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subscription_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DrugID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefillDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NextRefillDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visited)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Policy_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.RefillOrderId
+            </td>
+            <td>
+                @item.Subscription_ID
+            </td>
+            <td>
+                @item.DrugID
+            </td>
+            <td>
+                @item.RefillDate
+            </td>
+            <td>
+                @item.NextRefillDate
+            </td>
+            <td>
+                @item.Status
+            </td>
+            <td>
+                @item.Visited
+            </td>
+            <td>
+                @item.FromDate
+            </td>
+            <td>
+                @item.Policy_ID
+            </td>
+            <td>
+                @item.Member_ID
+            </td>
+            <td>
+                @item.Location
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

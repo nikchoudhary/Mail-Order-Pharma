@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "IndexDue";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>IndexDue</h1>
+
+<form action="/Refill/GetDues">
+    <input name="Subid" type="text" />
+
+    <input name="fromdate" type="date" />
+
+    <input type="submit" value="Search" />
+</form>
+
+
+

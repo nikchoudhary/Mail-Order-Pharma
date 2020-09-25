@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+@if(!string.IsNullOrEmpty(ViewBag.Message))
+{
+<div class="alert alert-info">@ViewBag.Message</div>
+}
+
+<form action="/Subscription/Subs" method="post">
+
+    <input name="Drug_ID" type="text" />
+
+    <input name="Sub_id" type="text" />
+
+    <input name="Member_Location" type="text" />
+
+    <input name="MemberID" type="text" />
+
+    <input name="SubscriptionDate" type="date" />
+
+    <input name="PrescriptionID" type="text" />
+
+    <input name="RefillOccurrence" type="text" />
+
+    <input name=" SubscriptionStatus" type="text" />
+
+
+
+
+    <input type="submit" value="Search" />
+</form>
+
+
