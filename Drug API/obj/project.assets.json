@@ -6622,19 +6622,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tamag\\.nuget\\packages\\": {}
+    "C:\\Users\\oliva\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tamag\\source\\repos\\DrugsServices-master\\MailOrderPharmacy_DrugService.csproj",
+      "projectUniqueName": "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\Drug API\\MailOrderPharmacy_DrugService.csproj",
       "projectName": "MailOrderPharmacy_DrugService",
-      "projectPath": "C:\\Users\\tamag\\source\\repos\\DrugsServices-master\\MailOrderPharmacy_DrugService.csproj",
-      "packagesPath": "C:\\Users\\tamag\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tamag\\source\\repos\\DrugsServices-master\\obj\\",
+      "projectPath": "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\Drug API\\MailOrderPharmacy_DrugService.csproj",
+      "packagesPath": "C:\\Users\\oliva\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\Drug API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tamag\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\oliva\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6705,7 +6705,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
