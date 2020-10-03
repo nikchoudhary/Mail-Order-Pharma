@@ -23,66 +23,64 @@ namespace LoginPortal.Controllers
             
             _config = config;
         }
-
+        /// <summary>
+        /// This method Returns the Login Page View
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Login()
         {
-            //_log4net.Info("Login initiated");
-
+            HttpContext.Response.Cookies.Delete("Token");
             return View();
 
-
-
         }
+        /// <summary>
+        /// This method creates the View for Authorized Users
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Login(Member obj)
         {
             string TokenForLogin;
             string data = JsonConvert.SerializeObject(obj);
             
-            //Uri baseAddress = new Uri("https://localhost:44372/api/Auth/");
-            
             try
             {
-                TokenForLogin = GetToken("https://localhost:44377/api/Auth/", obj);
+                TokenForLogin = GetToken("http://20.193.136.176/api/Auth/", obj);
+                
                 if (!string.IsNullOrEmpty(TokenForLogin))
                 {
+                    HttpContext.Response.Cookies.Append("Token", TokenForLogin);
                     return View("Index");
                 }
+                ViewBag.Message = "Invalid ID or Password";
                 return View("Login");
             }
             catch (Exception ex)
             {
-                //_log4net.Info("Exception In Authentication ActionResult");
                 return View("Error1", ex);
             }
         }
-        //[HttpPost]
-        //public ActionResult MailOrder(Drug obj)
-        //{
-        //    Uri baseAddress = new Uri("https://localhost:44372/api");
-        //    HttpClient client;
-        //    client = new HttpClient();
-        //    client.BaseAddress = baseAddress;
-
-        //    Drug ls = new Drug();
-        //    HttpResponseMessage response = client.GetAsync(client.BaseAddress + "/Drugs/" + obj.DrugId).Result;
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        string data = response.Content.ReadAsStringAsync().Result;
-        //        ls = JsonConvert.DeserializeObject<Drug>(data);
-        //    }
-        //    return View(ls);
-
-        //}
         
         public ActionResult Index()
         {
+            
+            string Token = HttpContext.Request.Cookies["Token"];
+            if(string.IsNullOrEmpty(Token))
+            {
+                return View("Login");
+            }
             return View();
         }
         
             
 
-        // GET: MemberController
+        /// <summary>
+        /// This method generates Token for Authorized Users
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
         static string GetToken(string url, Member user)
         {
 
@@ -92,9 +90,13 @@ namespace LoginPortal.Controllers
             using (var client = new HttpClient())
             {
                 var response = client.PostAsync(url, data).Result;
-                string name = response.Content.ReadAsStringAsync().Result;
-                //dynamic details = JObject.Parse(name);
-                return name;
+                if(response.IsSuccessStatusCode)
+                {
+                    string token = response.Content.ReadAsStringAsync().Result;
+                    return token;
+                }
+               
+                return null;
             }
         }
     }

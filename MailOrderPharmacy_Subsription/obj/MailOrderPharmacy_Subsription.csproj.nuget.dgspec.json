@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nikhil\\Desktop\\Project\\MFPE\\MailOrderPharmacy_Subsription\\MailOrderPharmacy_Subsription.csproj": {}
+    "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\MailOrderPharmacy_Subsription\\MailOrderPharmacy_Subsription.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nikhil\\Desktop\\Project\\MFPE\\MailOrderPharmacy_Subsription\\MailOrderPharmacy_Subsription.csproj": {
+    "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\MailOrderPharmacy_Subsription\\MailOrderPharmacy_Subsription.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nikhil\\Desktop\\Project\\MFPE\\MailOrderPharmacy_Subsription\\MailOrderPharmacy_Subsription.csproj",
+        "projectUniqueName": "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\MailOrderPharmacy_Subsription\\MailOrderPharmacy_Subsription.csproj",
         "projectName": "MailOrderPharmacy_Subsription",
-        "projectPath": "C:\\Users\\Nikhil\\Desktop\\Project\\MFPE\\MailOrderPharmacy_Subsription\\MailOrderPharmacy_Subsription.csproj",
-        "packagesPath": "C:\\Users\\Nikhil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nikhil\\Desktop\\Project\\MFPE\\MailOrderPharmacy_Subsription\\obj\\",
+        "projectPath": "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\MailOrderPharmacy_Subsription\\MailOrderPharmacy_Subsription.csproj",
+        "packagesPath": "C:\\Users\\oliva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\MailOrderPharmacy_Subsription\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nikhil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oliva\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,21 +38,13 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Microsoft.Extensions.Logging.Log4Net.AspNetCore": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[3.1.8, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.10.9, )"
-            },
-            "NUnit": {
-              "target": "Package",
-              "version": "[3.12.0, )"
-            },
-            "NUnit3TestAdapter": {
-              "target": "Package",
-              "version": "[3.17.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -60,7 +52,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[5.0.0-rc3, )"
+              "version": "[5.6.3, )"
             }
           },
           "imports": [
@@ -81,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

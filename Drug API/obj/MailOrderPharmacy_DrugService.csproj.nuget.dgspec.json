@@ -1,22 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\Nikhil\\Desktop\\Mail Order Pharmacy\\Refill\\Drug API\\MailOrderPharmacy_DrugService.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\Nikhil\\Desktop\\Mail Order Pharmacy\\Refill\\Drug API\\MailOrderPharmacy_DrugService.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Nikhil\\Desktop\\Mail Order Pharmacy\\Refill\\Drug API\\MailOrderPharmacy_DrugService.csproj",
-        "projectName": "MailOrderPharmacy_DrugService",
-        "projectPath": "C:\\Users\\Nikhil\\Desktop\\Mail Order Pharmacy\\Refill\\Drug API\\MailOrderPharmacy_DrugService.csproj",
-        "packagesPath": "C:\\Users\\Nikhil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nikhil\\Desktop\\Mail Order Pharmacy\\Refill\\Drug API\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Nikhil\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
     "C:\\Users\\oliva\\OneDrive\\Desktop\\MailOrder\\MailOrder_Pharmacy\\Drug API\\MailOrderPharmacy_DrugService.csproj": {}
   },
   "projects": {
@@ -31,7 +15,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\oliva\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 1c0139f4b37af4ecfa0ff9a7f9978719c239452c
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -66,14 +49,6 @@
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.10.9, )"
-            },
-            "Moq": {
-              "target": "Package",
-              "version": "[4.14.5, )"
-            },
-            "NUnit3TestAdapter": {
-              "target": "Package",
-              "version": "[3.17.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

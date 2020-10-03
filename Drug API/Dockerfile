@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["MailOrderPharmacy_DrugService.csproj", ""]
-RUN dotnet restore "./MailOrderPharmacy_DrugService.csproj"
+COPY ["MailOrderPharmacyDrugService.csproj", ""]
+RUN dotnet restore "./MailOrderPharmacyDrugService.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "MailOrderPharmacy_DrugService.csproj" -c Release -o /app/build
+RUN dotnet build "MailOrderPharmacyDrugService.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "MailOrderPharmacy_DrugService.csproj" -c Release -o /app/publish
+RUN dotnet publish "MailOrderPharmacyDrugService.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "MailOrderPharmacy_DrugService.dll"]
+ENTRYPOINT ["dotnet", "MailOrderPharmacyDrugService.dll"]

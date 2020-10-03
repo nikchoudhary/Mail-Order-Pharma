@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MailOrderPharmacy_Subsription.Modules
+namespace MailOrderPharmacySubscription.Modules
 {
     public class Refill
     {
@@ -17,6 +17,6 @@ namespace MailOrderPharmacy_Subsription.Modules
         public int Policy_ID { get; set; }
         public int Member_ID { get; set; }
         public string Location { get; set; }
-        //public RefillOrderLine RefillOrderLine { get; set; }
+        
     }
 }

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MailOrderPharmacy_Subsription.Modules
+namespace MailOrderPharmacySubscription.Modules
 {
     public class SubscriptionDetails
     {
         public int Drug_ID { get; set; }
+        public string Drug_name { get; set; }
         public int Sub_id { get; set; }
         public string Member_Location { get; set; }
         public int MemberID { get; set; } 

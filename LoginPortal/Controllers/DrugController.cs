@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using LoginPortal.MailOrderContext;
 using LoginPortal.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,32 +14,38 @@ namespace LoginPortal.Controllers
 {
     public class DrugController : Controller
     {
-        Uri baseAddress = new Uri("https://localhost:44372/api");
+        Uri baseAddress = new Uri("http://20.193.144.163/api");    //https://localhost:44372
         HttpClient client;
-        public DrugController()
+        PharmacyContext context;
+        public DrugController(PharmacyContext _con)
         {
             client = new HttpClient();
             client.BaseAddress = baseAddress;
+            context = _con;
 
         }
-        // GET: DrugController
-        //public IActionResult actionResult
-
+        /// <summary>
+        /// This Method us giving the View For Checking Drug details
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
-
-            
             return View();
         }
         
-        public ActionResult GetById(int drugid)
+        public ActionResult Check_DrugByID(int drugid)
         {
-            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer");
-            HttpResponseMessage response = client.GetAsync(client.BaseAddress+"/Drugs/"+ drugid).Result;
+            string Token = HttpContext.Request.Cookies["Token"];
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+            
+            HttpResponseMessage response = client.GetAsync(client.BaseAddress+ "/Drugs/GetDrugDetails/" + drugid).Result;
             if (response.IsSuccessStatusCode)
             {
                 string scheduleData = response.Content.ReadAsStringAsync().Result;
                 Drug drug = JsonConvert.DeserializeObject<Drug>(scheduleData);
+                context.DrugDetails.Add(drug);
+                context.SaveChanges();
+
                 return View("DrugDetailsid", drug);
             }
             return View();
@@ -50,73 +57,48 @@ namespace LoginPortal.Controllers
             return View();
         }
 
-        // GET: DrugController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Check_DrugByName(Drug obj)
         {
-            return View();
-        }
+            string drugname = obj.Name;
+            string Token = HttpContext.Request.Cookies["Token"];
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+            HttpResponseMessage response = client.GetAsync(client.BaseAddress + "/Drugs/GetDrugDetailByName/" + drugname).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                string scheduleData = response.Content.ReadAsStringAsync().Result;
+                Drug drug = JsonConvert.DeserializeObject<Drug>(scheduleData);
+                context.DrugDetails.Add(drug);
+                context.SaveChanges();
 
-        // GET: DrugController/Create
-        public ActionResult Create()
-        {
+                return View("DrugDetailsname", drug);
+            }
             return View();
-        }
 
-        // POST: DrugController/Create
+        }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: DrugController/Edit/5
-        public ActionResult Edit(int id)
+        public IActionResult DrugDetailsname(Drug obj)
         {
             return View();
         }
 
-        // POST: DrugController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult GetByAll(int id, string loc)
         {
-            try
+            string Token = HttpContext.Request.Cookies["Token"];
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+            HttpResponseMessage response = client.GetAsync(client.BaseAddress + "/Drugs/" + id+"/"+loc).Result;
+            if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction(nameof(Index));
+                string scheduleData = response.Content.ReadAsStringAsync().Result;
+                IEnumerable<Drugloc> drug = JsonConvert.DeserializeObject<List<Drugloc>>(scheduleData);
+                return View("DrugDetailsall", drug);
             }
-            catch
-            {
-                return View();
-            }
-        }
+            return View();
 
-        // GET: DrugController/Delete/5
-        public ActionResult Delete(int id)
+        }
+        [HttpPost]
+        public IActionResult DrugDetailsall(Drugloc obj)
         {
             return View();
-        }
-
-        // POST: DrugController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

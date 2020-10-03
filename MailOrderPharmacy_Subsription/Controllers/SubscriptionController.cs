@@ -3,27 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using MailOrderPharmacy_Subsription.Modules;
-using MailOrderPharmacy_Subsription.Repository;
+using MailOrderPharmacySubscription.Modules;
+using MailOrderPharmacySubscription.Repository;
+using Microsoft.AspNetCore.Authorization;
 //using MailOrderPharmacy_Subsription.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace MailOrderPharmacy_Subsription.Controllers
+namespace MailOrderPharmacySubscription.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class SubscriptionController : ControllerBase
     {
-        readonly log4net.ILog _log4net;
-        private ISubscription _con;
+        private ISubscriptionRepository _sub;
 
-        public SubscriptionController(ISubscription con)
+        public SubscriptionController(ISubscriptionRepository sub)
+        {   
+            _sub = sub;
+        }
+        string Token;
+        public SubscriptionController()
         {
-            _con = con;
-            _log4net = log4net.LogManager.GetLogger(typeof(SubscriptionController));
+            Token = HttpContext.Request.Headers["Authorization"].Single().Split(" ")[1];
         }
         public static List<SubscriptionDetails> ls = new List<SubscriptionDetails>
         {
@@ -54,50 +59,69 @@ namespace MailOrderPharmacy_Subsription.Controllers
             }
 
         };
-        [HttpGet("{id}")]
-        public IActionResult get(int id)
+        /// <summary>
+        /// This method returns the details using Subscription ID
+        /// </summary>
+        /// <param name="subid"></param>
+        /// <returns></returns>
+        [HttpGet("ViewDetails_BySubID/{subid}")]
+        public IActionResult ViewDetails_BySubID(int subid)
         {
-            var item = _con.Get(id);
+            var item = _sub.ViewDetailsByID(subid);
+            if (item == null)
+                return null;
 
             return Ok(item);
         }
 
 
-        // POST api/<SubscriptionController>
+        /// <summary>
+        /// This method Allowing subscription by checking drug name
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         [HttpPost("AddSubscription")]
-        public ActionResult AddSubscription(SubscriptionDetails obj)
+        public ActionResult Add_Subscription(SubscriptionDetails obj)
         {
-            Subscription sub = new Subscription();
-            string status = _con.AddSubscription(obj);
-            //string status = sub.AddSubscription(obj);
+            if (HttpContext == null)
+            {
+                Token = "Token";
+            }
+            else
+            {
+                Token = HttpContext.Request.Headers["Authorization"].Single().Split(" ")[1];
+            }
+
+            //SubscriptionRepository sub = new SubscriptionRepository();
+            string status = _sub.AddSubscription(obj, Token);
             if (status == null)
                 return BadRequest();
             return Ok(status);
-
-             
-          }
+        }
+        /// <summary>
+        /// This method Allowing unsubscription by checking refill status
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         [HttpPost("RemoveSubscription")]
-        public ActionResult RemoveSubscription(SubscriptionDetails obj)
+        public ActionResult Remove_Subscription(SubscriptionDetails obj)
         {
-            Subscription sub = new Subscription();
-            string status = _con.RemoveSubscription(obj);
-            //string status = sub.RemoveSubscription(obj);
+            if (HttpContext == null)
+            {
+                Token = "Token";
+            }
+            else
+            {
+                Token = HttpContext.Request.Headers["Authorization"].Single().Split(" ")[1];
+            }
+            //SubscriptionRepository sub = new SubscriptionRepository();
+            string status = _sub.RemoveSubscription(obj, Token);
             if (status == null)
                 return BadRequest();
             return Ok(status);
             
         }
 
-        // PUT api/<SubscriptionController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<SubscriptionController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+       
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MailOrderPharmacy_Subsription.Modules
+namespace MailOrderPharmacySubscription.Modules
 {
     public class Prescription
     {

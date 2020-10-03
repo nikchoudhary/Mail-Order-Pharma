@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MailOrderPharmacy_Subsription.Modules
+namespace MailOrderPharmacySubscription.Modules
 {
     public class Drug
     {
@@ -14,8 +14,6 @@ namespace MailOrderPharmacy_Subsription.Modules
         public DateTime ExpiryDate { get; set; }
         public double cost { get; set; }
         public int UnitPackage { get; set; }
-        //public string Location { get; set; }
-        public double Quantity { get; set; }//drug details(ID, location, quantity)
-        //public DrugLocation drugLocation { get; set; }
+        public double Quantity { get; set; }
     }
 }

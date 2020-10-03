@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace MailOrderPharmacy_Subsription
+namespace MailOrderPharmacySubscription
 {
     public class Program
     {
@@ -22,11 +22,13 @@ namespace MailOrderPharmacy_Subsription
                 {
                     webBuilder.UseStartup<Startup>()
                     .ConfigureLogging((hostingContext, logging) =>
-                    {
-                        logging.AddLog4Net();
-                        logging.SetMinimumLevel(LogLevel.Debug);
-                    });
-
+                     {
+                         logging.AddLog4Net();
+                         logging.SetMinimumLevel(LogLevel.Error);
+                         logging.SetMinimumLevel(LogLevel.Debug);
+                         logging.SetMinimumLevel(LogLevel.Information);
+                         logging.SetMinimumLevel(LogLevel.Warning);
+                     });
                 });
     }
 }
